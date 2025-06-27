@@ -79,7 +79,7 @@ async fn main() -> anyhow::Result<()> {
         .flow_control(FlowControl::None)
         .open_native_async()?;
 
-    let listener = TcpListener::bind(("127.0.0.1", args.tcp_port)).await?;
+    let listener = TcpListener::bind(("0.0.0.0", args.tcp_port)).await?;
     println!("Listening on port {}", args.tcp_port);
 
     let (mut socket, addr) = listener.accept().await?;
